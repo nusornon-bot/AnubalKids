@@ -1,0 +1,10 @@
+{
+  "name": "อนุบาลคิดส์ คิดส์ - Kids Hand Motion EduGame",
+  "description": "เกมการศึกษาปฐมวัย อนุบาล 1-3 ครบ 8 ทักษะหลัก พร้อมระบบ 3 เสาหลักสู่ ป.1 (ภาษาไทย ภาษาอังกฤษ คณิตศาสตร์) ภารกิจประจำวัน Daily Mission รับคะแนนโบนัส เกียรติบัตร Certificate of Achievement และ Adaptive Difficulty ปรับความยากอัตโนมัติ",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

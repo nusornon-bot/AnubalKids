@@ -1,0 +1,57 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // User feedback submissions
+    match /feedbacks/{feedbackId} {
+      allow read, write: if true;
+    }
+
+    // Student game session results
+    match /game_sessions/{sessionId} {
+      allow read, write: if true;
+    }
+
+    // Student profiles cloud synchronization
+    match /profiles/{profileId} {
+      allow read, write: if true;
+    }
+
+    // Progress assessment reports
+    match /progress_reports/{reportId} {
+      allow read, write: if true;
+    }
+    
+    // Global app configuration (Google Sheets Webhook URL etc.)
+    match /config/{configId} {
+      allow read, write: if true;
+    }
+
+    // Custom questions bank
+    match /custom_questions/{questionId} {
+      allow read, write: if true;
+    }
+
+    // Teacher & auto-generated exam sets
+    match /exam_sets/{setId} {
+      allow read, write: if true;
+    }
+
+    // Classroom Virtual Rooms & Real-time student presence
+    match /classroom_rooms/{roomId} {
+      allow read, write: if true;
+
+      match /students/{studentId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Classroom Discussions & Teacher-Parent Community Forum
+    match /classroom_discussions/{discussionId} {
+      allow read, write: if true;
+
+      match /replies/{replyId} {
+        allow read, write: if true;
+      }
+    }
+  }
+}

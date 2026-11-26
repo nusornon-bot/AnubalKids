@@ -1,0 +1,215 @@
+{
+  "entities": {
+    "Feedback": {
+      "title": "Feedback",
+      "description": "User feedback submission",
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string" },
+        "category": { "type": "string" },
+        "rating": { "type": "number" },
+        "message": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "contactInfo": { "type": "string" },
+        "profileName": { "type": "string" },
+        "currentGrade": { "type": "string" },
+        "deviceInfo": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["timestamp", "category", "rating", "message"]
+    },
+    "GameSession": {
+      "title": "GameSession",
+      "description": "Log of completed game round and scores",
+      "type": "object",
+      "properties": {
+        "profileId": { "type": "string" },
+        "profileName": { "type": "string" },
+        "grade": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "date": { "type": "string" },
+        "totalCorrect": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "accuracy": { "type": "number" },
+        "isPerfect": { "type": "boolean" },
+        "usedHandTracking": { "type": "boolean" },
+        "literacyScore": { "type": "number" },
+        "mathScore": { "type": "number" },
+        "problemSolvingScore": { "type": "number" },
+        "inquiryScore": { "type": "number" },
+        "creativityScore": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["profileName", "grade", "totalCorrect", "totalQuestions"]
+    },
+    "ChildProfile": {
+      "title": "ChildProfile",
+      "description": "Student profile synchronized across devices",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "grade": { "type": "string" },
+        "avatar": { "type": "string" },
+        "totalScore": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "streakDays": { "type": "number" },
+        "lastPlayedDate": { "type": "string" },
+        "deviceId": { "type": "string" },
+        "createdDeviceName": { "type": "string" },
+        "createdByEmail": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "grade"]
+    },
+    "AssessmentReport": {
+      "title": "AssessmentReport",
+      "description": "8 Early childhood developmental skill assessment report",
+      "type": "object",
+      "properties": {
+        "profileId": { "type": "string" },
+        "profileName": { "type": "string" },
+        "grade": { "type": "string" },
+        "overallAccuracy": { "type": "number" },
+        "literacyRate": { "type": "number" },
+        "mathRate": { "type": "number" },
+        "problemSolvingRate": { "type": "number" },
+        "inquiryRate": { "type": "number" },
+        "creativityRate": { "type": "number" },
+        "physicalHealthRate": { "type": "number" },
+        "socioEmotionalRate": { "type": "number" },
+        "citizenshipRate": { "type": "number" },
+        "summary": { "type": "string" },
+        "evaluatedAt": { "type": "string" }
+      },
+      "required": ["profileName", "grade", "overallAccuracy"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "Custom learning question entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "grade": { "type": "string" },
+        "subject": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "questionTextTh": { "type": "string" },
+        "options": { "type": "array" },
+        "correctOptionIndex": { "type": "number" }
+      },
+      "required": ["id", "grade", "subject", "questionTextTh"]
+    },
+    "AppConfig": {
+      "title": "AppConfig",
+      "description": "Global application configuration including Google Sheets Webhook URL",
+      "type": "object",
+      "properties": {
+        "appsScriptUrl": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      }
+    },
+    "ExamSet": {
+      "title": "ExamSet",
+      "description": "Curated or automatically generated quiz and exam question sets for teachers and students",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "grade": { "type": "string" },
+        "subjects": { "type": "array" },
+        "questionIds": { "type": "array" },
+        "questionCount": { "type": "number" },
+        "generationMode": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "estimatedMinutes": { "type": "number" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "questionIds", "questionCount", "generationMode"]
+    },
+    "ClassroomRoom": {
+      "title": "ClassroomRoom",
+      "description": "Virtual classroom room created by teacher for real-time live monitoring",
+      "type": "object",
+      "properties": {
+        "roomId": { "type": "string" },
+        "roomCode": { "type": "string" },
+        "name": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "grade": { "type": "string" },
+        "targetActivity": { "type": "string" },
+        "targetStars": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "teacherCheer": { "type": "object" },
+        "broadcastAlert": { "type": "object" }
+      },
+      "required": ["roomId", "roomCode", "name", "teacherName", "status"]
+    },
+    "ClassroomStudent": {
+      "title": "ClassroomStudent",
+      "description": "Real-time presence and live game status of a student in a virtual classroom room",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "avatar": { "type": "string" },
+        "avatarBg": { "type": "string" },
+        "grade": { "type": "string" },
+        "currentGame": { "type": "string" },
+        "currentLevel": { "type": "string" },
+        "starsEarned": { "type": "number" },
+        "accuracy": { "type": "number" },
+        "status": { "type": "string" },
+        "helpRequested": { "type": "boolean" },
+        "helpMessage": { "type": "string" },
+        "lastActive": { "type": "number" },
+        "joinedAt": { "type": "number" }
+      },
+      "required": ["studentId", "studentName", "status"]
+    }
+  },
+  "firestore": {
+    "/feedbacks/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "Collection of feedback submitted by users"
+    },
+    "/game_sessions/{sessionId}": {
+      "schema": "GameSession",
+      "description": "Collection of recorded game rounds and skill breakdown"
+    },
+    "/profiles/{profileId}": {
+      "schema": "ChildProfile",
+      "description": "Collection of synced student profiles"
+    },
+    "/progress_reports/{reportId}": {
+      "schema": "AssessmentReport",
+      "description": "Collection of saved skill assessment reports"
+    },
+    "/config/{configId}": {
+      "schema": "AppConfig",
+      "description": "Global app settings such as Google Sheets webhook URL"
+    },
+    "/custom_questions/{questionId}": {
+      "schema": "Question",
+      "description": "Custom questions created by teachers/parents"
+    },
+    "/exam_sets/{setId}": {
+      "schema": "ExamSet",
+      "description": "Teacher-created or auto-generated quiz sets"
+    },
+    "/classroom_rooms/{roomId}": {
+      "schema": "ClassroomRoom",
+      "description": "Virtual classroom room sessions created by teachers"
+    },
+    "/classroom_rooms/{roomId}/students/{studentId}": {
+      "schema": "ClassroomStudent",
+      "description": "Live student presence, activities, stars, and help status in the classroom"
+    }
+  }
+}
