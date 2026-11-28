@@ -356,7 +356,8 @@ export const HandTrackingCamera: React.FC<HandTrackingCameraProps> = ({
           <div className="relative w-44 h-32 bg-slate-900 rounded-xl overflow-hidden mt-1 border border-slate-200">
             <video
               ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover hidden"
+              className="absolute top-0 left-0 w-px h-px opacity-0 pointer-events-none"
+              autoPlay
               playsInline
               muted
             />

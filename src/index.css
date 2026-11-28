@@ -28,10 +28,16 @@
   scrollbar-color: rgba(148, 163, 184, 0.6) rgba(241, 245, 249, 0.7);
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling & Mobile Touch Ergonomics */
 html, body {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
 }
 
 /* Screen Transition Entrance Animations */
